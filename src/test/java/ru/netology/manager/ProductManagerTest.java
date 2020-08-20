@@ -15,8 +15,10 @@ class ProductManagerTest {
     private ProductManager manager = new ProductManager(repository);
     private Book book1 = new Book (1, "Дети капитана Гранта", 789, "Жюль Верн");
     private Book book2 = new Book(2,"Парфюмер", 456, "Патрик Зюскинд");
+    private Book book3 = new Book (3, "Вокруг света за 80 дней", 321, "Жюль Верн");
     private Smartphone smartphone1 = new Smartphone(1, "Apple", 45000, "China");
     private Smartphone smartphone2 = new Smartphone(2, "Honor", 20000,"China");
+
 
     @BeforeEach
     public void setUp() {
@@ -90,4 +92,14 @@ class ProductManagerTest {
         Product [] actual = manager.searchBy(text);
         assertArrayEquals(expected, actual);
     }
+
+    @Test
+    public void shouldSearchProductWithSameAuthor (){
+        manager.productAdd(book3);
+        String text = "Жюль Верн";
+        Product[] expected = new Product[]{book1, book3};
+        Product[] actual = manager.searchBy(text);
+        assertArrayEquals(expected, actual);
+    }
+
 }
