@@ -7,11 +7,11 @@ import lombok.EqualsAndHashCode;
 @EqualsAndHashCode (callSuper = true)
 
 public class Smartphone extends Product {
-    private String country;
+    private String manufacturer;
 
-    public Smartphone (int id, String name, int price, String country) {
+    public Smartphone (int id, String name, int price, String manufacturer) {
         super(id, name, price);
-        this.country = country;
+        this.manufacturer = manufacturer;
     }
 
     @Override
@@ -19,7 +19,7 @@ public class Smartphone extends Product {
         if (super.matches(search)) {
             return true;
         }
-        if (search.equalsIgnoreCase(country)){
+        if (search.equalsIgnoreCase(manufacturer)){
             return true;
         }
         return false;
