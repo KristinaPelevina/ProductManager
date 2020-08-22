@@ -16,7 +16,7 @@ class ProductManagerTest {
     private Book book1 = new Book (1, "Дети капитана Гранта", 789, "Жюль Верн");
     private Book book2 = new Book(2,"Парфюмер", 456, "Патрик Зюскинд");
     private Smartphone smartphone1 = new Smartphone(1, "Apple", 45000, "China");
-    private Smartphone smartphone2 = new Smartphone(2, "Honor", 20000,"China");
+    private Smartphone smartphone2 = new Smartphone(2, "Samsung", 20000,"Japan");
 
     @BeforeEach
     public void setUp() {
@@ -76,18 +76,18 @@ class ProductManagerTest {
     }
 
     @Test
-    void shouldSearchSmartphoneByManufacturerIfExists () {
-        String text = "Apple";
-        Product[] expected = new Product[]{smartphone1};
+    void shouldSearchSmartphoneByManufacturerIfExists() {
+        String text = "Japan";
+        Product[] expected = new Product[]{smartphone2};
         Product[] actual = manager.searchBy(text);
         assertArrayEquals(expected, actual);
     }
 
     @Test
-    void shouldNotSearchSmartphoneByManufacturerIfNotExists (){
+    void shouldNotSearchSmartphoneByManufacturerIfExists() {
         String text = "USA";
-        Product [] expected = new Smartphone[]{};
-        Product [] actual = manager.searchBy(text);
+        Product[] expected = new Product[]{};
+        Product[] actual = manager.searchBy(text);
         assertArrayEquals(expected, actual);
     }
 }
