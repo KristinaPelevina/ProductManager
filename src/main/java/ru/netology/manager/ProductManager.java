@@ -43,7 +43,7 @@ public class ProductManager {
             if (smartphone.getName().equalsIgnoreCase(search)) {
                 return true;
             }
-            if (smartphone.getCountry().equalsIgnoreCase(search)) {
+            if (smartphone.getManufacturer().equalsIgnoreCase(search)) {
                 return true;
             }
         }

@@ -76,7 +76,7 @@ class ProductManagerTest {
     }
 
     @Test
-    void shouldSearchSmartphoneByCountryIfExists () {
+    void shouldSearchSmartphoneByManufacturerIfExists () {
         String text = "Apple";
         Product[] expected = new Product[]{smartphone1};
         Product[] actual = manager.searchBy(text);
@@ -84,7 +84,7 @@ class ProductManagerTest {
     }
 
     @Test
-    void shouldNotSearchSmartphoneByCountryIfNotExists (){
+    void shouldNotSearchSmartphoneByManufacturerIfNotExists (){
         String text = "USA";
         Product [] expected = new Smartphone[]{};
         Product [] actual = manager.searchBy(text);
